@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://assets.pagseguro.com.br/checkout-sdk-js/rc/dist/browser/pagseguro.min.js"></script>
+    </head>
+    <body>
+        <input id="number" type="text" name="number" autocomplete="off" />
+        <input id="expMonth" type="text" name="expMonth" autocomplete="off" />
+        <input id="expYear" type="text" name="expYear" autocomplete="off" />
+        <input id="securityCode" type="text" name="securityCode" autocomplete="off" />
+        <input type="submit" onclick="createHash()" />
+        <p id="hash"></p>
+
+        <script>
+            function createHash() {
+                var card = PagSeguro.encryptCard({
+                    publicKey: "key-publica-para-add-aqui",
+                    holder: "Nome Sobrenome",
+                    number: document.getElementById("number").value,
+                    expMonth: document.getElementById("expMonth").value,
+                    expYear: document.getElementById("expYear").value,
+                    securityCode: document.getElementById("securityCode").value
+                });
+    
+                document.getElementById("hash").innerHTML = card.encryptedCard;
+            }
+        </script>
+    </body>
+</html>

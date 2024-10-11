@@ -1,0 +1,16 @@
+{
+  "name": "k6",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/k6/src",
+  "projectType": "application",
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/k6/**/*.js"]
+      }
+    }
+  },
+  "tags": []
+}
